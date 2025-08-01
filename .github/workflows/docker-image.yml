@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      packages: write   # ✅ Cần để push lên GHCR
+      packages: write 
 
     steps:
       - name: Checkout code
