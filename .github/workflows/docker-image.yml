@@ -24,10 +24,10 @@ jobs:
 
       - name: Build Docker image
         run: |
-          IMAGE_NAME=ghcr.io/${{ github.repository }}/editor-service
+          IMAGE_NAME=ghcr.io/${{ github.repository }}
           docker build . --file Dockerfile --tag $IMAGE_NAME:latest
 
       - name: Push Docker image
         run: |
-          IMAGE_NAME=ghcr.io/${{ github.repository }}/editor-service
+          IMAGE_NAME=ghcr.io/${{ github.repository }}
           docker push $IMAGE_NAME:latest
