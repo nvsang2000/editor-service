@@ -10,4 +10,4 @@ COPY . .
 
 CMD ["bun", "src/server.ts"]
 
-EXPOSE 3000
+EXPOSE 35000
