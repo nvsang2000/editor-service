@@ -1,16 +1,15 @@
-name: Build and Push Docker Image
+name: Docker Image CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     permissions:
-      packages: write
+      packages: write   # ✅ Cần để push lên GHCR
 
     steps:
       - name: Checkout code
@@ -23,8 +22,12 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and Push
+      - name: Build Docker image
         run: |
           IMAGE_NAME=ghcr.io/${{ github.repository }}/editor-service
-          docker build -t $IMAGE_NAME:latest .
+          docker build . --file Dockerfile --tag $IMAGE_NAME:latest
+
+      - name: Push Docker image
+        run: |
+          IMAGE_NAME=ghcr.io/${{ github.repository }}/editor-service
           docker push $IMAGE_NAME:latest
