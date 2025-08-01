@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",                       // Hỗ trợ async/await, top-level await
+    "module": "NodeNext",                     // ESM NodeNext để phù hợp với moduleResolution
+    "moduleResolution": "NodeNext",           // Hỗ trợ ESM + import alias
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
